@@ -9,22 +9,23 @@ import org.springframework.jdbc.object.StoredProcedure;
 public class CryoBaseDAO extends StoredProcedure {
 	public CryoBaseDAO(DataSource dataSource) {
 		super(dataSource, "");
-		// clearing off declared parameters
-		// so that when run with multiple stored procedures,
-		// stored procedure parameters will not get overlapped.
-		getDeclaredParameters().clear();
 	}
 
 	protected Map<String, Object> executeWithOutParameters() {
 		compile();
 		return this.execute();
 	}
+
+	protected Map<String, Object> executeWithParams(Map<String, Object> inputParameters) {
+		compile();
+		return this.execute(inputParameters);
+	}
+
 	/**
 	 * providing custom implementation to take advantage of one data access
 	 * implementation to handle multiple stored procedures
 	 */
-	public boolean isCompiled()
-	{
+	public boolean isCompiled() {
 		return false;
 	}
 }

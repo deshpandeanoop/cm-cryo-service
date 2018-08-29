@@ -1,20 +1,23 @@
 package com.cm.cryo.util;
 
-public class CryoConstants {
+public final class CryoConstants {
 	private CryoConstants()
 	{
 		return;
 	}
-	public static String CRYO_TYPE_ID="cryoTypeId";
-	public static String CRYO_LABEL_ID="cryoLabelId";
-	public static String CRYO_ROOM_ID="cryoRoomId";
+	public static final String CRYO_TYPE_ID="tankTypeId";
+	public static final String CRYO_LABEL_ID="labelTypeId";
+	public static  final String CRYO_ROOM_ID="roomTypeId";
 	
-	public static String CRYO_ROOMS_RESULTSET="cryoRooms";
-	public static String CRYO_TYPES_RESULTSET="cryoTypes";
-	public static String CRYO_LABELS_RESULTSET="cryoLabels";
-	public static String CRYO_TANKS_RESULTSET="cryoTanks";
+	public static  final String CRYO_ROOMS_RESULTSET="cryoRooms";
+	public static final String CRYO_TYPES_RESULTSET="cryoTypes";
+	public static final String CRYO_LABELS_RESULTSET="cryoLabels";
+	public static final String CRYO_TANKS_RESULTSET="cryoTanks";
 	
 	// storedproc names
-	public static String CRYO_GET_DROP_DOWN_VALUES="CM_GetTankDropDownValues";
-	public static String CRYO_GET_TANKS="CM_GetCryoTanks";
+	public static final String CRYO_GET_DROP_DOWN_VALUES="CM_GetTankDropDownValues";
+	public static final String CRYO_GET_TANKS="CM_GetCryoTanks";
+	
+	// session attribute names
+	public static final String TANK_DROPDOWN_SESSION = "tankDropDownAttributes";
 }

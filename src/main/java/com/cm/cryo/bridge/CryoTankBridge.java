@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.cm.cryo.dto.CryoTankDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
+import com.cm.cryo.dto.CryoTankFilterDTO;
 import com.cm.cryo.ibridge.ICryoTankBridge;
 import com.cm.cryo.idao.ICryoTankDAO;
 
@@ -21,8 +22,8 @@ public class CryoTankBridge implements ICryoTankBridge {
 	}
 
 	@Override
-	public List<CryoTankDTO> getTanks() {
-		return cryoTankDAO.getTanks();
+	public List<CryoTankDTO> getTanks(CryoTankFilterDTO filter) {
+		return cryoTankDAO.getTanks(filter);
 	}
 
 }
