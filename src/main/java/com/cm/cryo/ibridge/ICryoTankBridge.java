@@ -9,4 +9,5 @@ import com.cm.cryo.dto.CryoTankFilterDTO;
 public interface ICryoTankBridge {
 	public CryoTankDropDownAttributeDTO getTankDropDownAttributes();
 	public List<CryoTankDTO> getTanks(CryoTankFilterDTO filter);
+	public List<CryoTankDTO> getTanks();
 }

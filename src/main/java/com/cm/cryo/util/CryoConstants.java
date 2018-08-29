@@ -16,7 +16,7 @@ public final class CryoConstants {
 	
 	// storedproc names
 	public static final String CRYO_GET_DROP_DOWN_VALUES="CM_GetTankDropDownValues";
-	public static final String CRYO_GET_TANKS="CM_GetCryoTanks";
+	public static final String CRYO_GET_ALL_TANKS="CM_GetCryoTanks";
 	
 	// session attribute names
 	public static final String TANK_DROPDOWN_SESSION = "tankDropDownAttributes";

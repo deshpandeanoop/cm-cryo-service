@@ -23,7 +23,12 @@ public class CryoTankBridge implements ICryoTankBridge {
 
 	@Override
 	public List<CryoTankDTO> getTanks(CryoTankFilterDTO filter) {
-		return cryoTankDAO.getTanks(filter);
+		return null;
+	}
+
+	@Override
+	public List<CryoTankDTO> getTanks() {
+		return cryoTankDAO.getTanks();
 	}
 
 }

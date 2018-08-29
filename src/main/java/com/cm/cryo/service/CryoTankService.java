@@ -38,9 +38,7 @@ public class CryoTankService implements ICryoTankService {
 			cryoMaster.setDropDownAttributes(
 					(CryoTankDropDownAttributeDTO) session.getAttribute(CryoConstants.TANK_DROPDOWN_SESSION));
 		}
-		// not setting any values to filter object to fetch all the tanks from the
-		// persistence storage
-		List<CryoTankDTO> tanks = cryoTankBridge.getTanks(new CryoTankFilterDTO());
+		List<CryoTankDTO> tanks = cryoTankBridge.getTanks();
 		// Based on level count and canister count, setting capacity of the tank
 		// and creating equivalant canister units per tank with calculated capacity
 		tanks.forEach(tank -> {
@@ -73,6 +71,7 @@ public class CryoTankService implements ICryoTankService {
 
 	private CryoRoomDTO createRoomWithTanks(List<CryoTankDTO> tanks, String roomName) {
 		CryoRoomDTO room = new CryoRoomDTO();
+		room.setRoomName(roomName);
 		room.setTanks(
 				tanks.stream().filter(tank -> tank.getRoom().equalsIgnoreCase(roomName)).collect(Collectors.toList()));
 		return room;
