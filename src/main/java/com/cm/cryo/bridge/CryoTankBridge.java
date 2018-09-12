@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cm.cryo.dto.CryoPatientDTO;
 import com.cm.cryo.dto.CryoTankDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
 import com.cm.cryo.dto.CryoTankFilterDTO;
@@ -29,6 +30,11 @@ public class CryoTankBridge implements ICryoTankBridge {
 	@Override
 	public List<CryoTankDTO> getTanks() {
 		return cryoTankDAO.getTanks();
+	}
+
+	@Override
+	public List<CryoPatientDTO> getPatients() {
+		return cryoTankDAO.getPatients();
 	}
 
 }

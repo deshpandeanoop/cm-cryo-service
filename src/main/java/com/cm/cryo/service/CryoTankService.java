@@ -49,6 +49,7 @@ public class CryoTankService implements ICryoTankService {
 		cryoMaster.getDropDownAttributes().getRoomTypes().stream()
 				.forEach(room -> rooms.add(createRoomWithTanks(tanks, room.getName())));
 		cryoMaster.setRooms(rooms);
+		cryoMaster.setPatients(cryoTankBridge.getPatients());
 		return cryoMaster;
 	}
 

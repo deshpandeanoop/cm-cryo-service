@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.stereotype.Repository;
 
+import com.cm.cryo.dto.CryoPatientDTO;
 import com.cm.cryo.dto.CryoTankDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
 import com.cm.cryo.dto.CryoTankFilterDTO;
@@ -43,9 +44,23 @@ public class CryoTankDAO extends CryoBaseDAO implements ICryoTankDAO {
 		return CryoTankResultSetMapper.convertMapResponseToDropDownAttributeDTO(this.executeWithOutParameters());
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CryoPatientDTO> getPatients() {
+		setSql(CryoConstants.CRYO_GET_ALL_PATIENTS);
+		clearDeclaredParameters();
+		declareResultSetParametersForPatientDetails();
+		return (List<CryoPatientDTO>) this.executeWithOutParameters().get(CryoConstants.CRYO_PATIENT_RESULTSET);
+	}
+
 	private void declareResultSetParametersForTankDetails() {
 		declareParameter(new SqlReturnResultSet(CryoConstants.CRYO_TANKS_RESULTSET,
 				new CryoTankResultSetMapper.CryoTankDetailsMapper()));
+	}
+
+	private void declareResultSetParametersForPatientDetails() {
+		declareParameter(new SqlReturnResultSet(CryoConstants.CRYO_PATIENT_RESULTSET,
+				new CryoTankResultSetMapper.CryoPatientDetailMapper()));
 	}
 
 	private void declareResultSetParametersForDropDownAttributes() {

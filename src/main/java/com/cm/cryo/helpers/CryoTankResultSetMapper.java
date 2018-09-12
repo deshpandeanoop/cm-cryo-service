@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.cm.cryo.dto.CryoBaseDTO;
 import com.cm.cryo.dto.CryoLabelTypeDTO;
+import com.cm.cryo.dto.CryoPatientDTO;
 import com.cm.cryo.dto.CryoRoomTypeDTO;
 import com.cm.cryo.dto.CryoTankDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
@@ -54,17 +55,22 @@ public class CryoTankResultSetMapper {
 			tank.setCanisterCount(rs.getInt("canister_count"));
 			tank.setLevelCount(rs.getInt("lvl_count"));
 			tank.setManufacturedDate(rs.getDate("mfd_date"));
-			tank.setOrderBy(rs.getInt("order_by"));
-			tank.setDeleted(rs.getInt("deleted"));
-			tank.setDeletedBy(rs.getString("deleted_by"));
-			tank.setDeletedAt(rs.getDate("deleted_at"));
-			tank.setCreatedAt(rs.getDate("created_at"));
-			tank.setCreatedBy(rs.getString("created_by"));
-			tank.setUpdatedBy(rs.getString("updated_by"));
-			tank.setUpdatedAt(rs.getDate("updated_at"));
 			return tank;
 		}
 
+	}
+
+	public static class CryoPatientDetailMapper implements RowMapper<CryoPatientDTO> {
+		@Override
+		public CryoPatientDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			CryoPatientDTO patient = new CryoPatientDTO();
+			patient.setName(rs.getString("pat_last_nm"));
+			patient.setHrn(rs.getString("hrn_num"));
+			patient.setNric(rs.getInt("episode_num"));
+			patient.setRegistrationId(rs.getInt("reg_id"));
+			patient.setTankId(rs.getInt("tank_id"));
+			return patient;
+		}
 	}
 
 	@SuppressWarnings("unchecked")

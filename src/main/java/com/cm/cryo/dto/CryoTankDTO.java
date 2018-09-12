@@ -20,7 +20,7 @@ public class CryoTankDTO extends CryoBaseDTO {
 	private Date updatedAt;
 	private String createdBy;
 	private Date createdAt;
-	private String capacity;
+	private String capacity; 
 
 	public String getCapacity() {
 		return capacity;
