@@ -69,6 +69,7 @@ public class CryoTankResultSetMapper {
 			patient.setNric(rs.getInt("episode_num"));
 			patient.setRegistrationId(rs.getInt("reg_id"));
 			patient.setTankId(rs.getInt("tank_id"));
+			patient.setCanisterNumber(rs.getInt("canister_no"));
 			return patient;
 		}
 	}
