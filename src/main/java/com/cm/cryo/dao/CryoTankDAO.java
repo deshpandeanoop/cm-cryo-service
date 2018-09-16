@@ -11,20 +11,14 @@ import org.springframework.stereotype.Repository;
 import com.cm.cryo.dto.CryoPatientDTO;
 import com.cm.cryo.dto.CryoTankDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
-import com.cm.cryo.dto.CryoTankFilterDTO;
 import com.cm.cryo.helpers.CryoTankResultSetMapper;
 import com.cm.cryo.idao.ICryoTankDAO;
 import com.cm.cryo.util.CryoConstants;
 
 @Repository
 public class CryoTankDAO extends CryoBaseDAO implements ICryoTankDAO {
-	public CryoTankDAO(DataSource dataSource) {
-		super(dataSource);
-	}
-
-	@Override
-	public List<CryoTankDTO> getTanks(CryoTankFilterDTO filter) {
-		return null;
+	public CryoTankDAO(DataSource dataSource,String emptyBean) {
+		super(dataSource,emptyBean);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -71,16 +65,7 @@ public class CryoTankDAO extends CryoBaseDAO implements ICryoTankDAO {
 		declareParameter(new SqlReturnResultSet(CryoConstants.CRYO_LABELS_RESULTSET,
 				new CryoTankResultSetMapper.CryoLabelTypeMapper()));
 	}
-	/* Will un comment this when I implement filtering tank functionality */
-	// private Map<String, Object>
-	// constructInputParametersForTankFilter(CryoTankFilterDTO filter) {
-	// Map<String, Object> inputParameters = new HashMap<>();
-	// inputParameters.put(CryoConstants.CRYO_ROOM_ID, filter.getRoomTypeId());
-	// inputParameters.put(CryoConstants.CRYO_TYPE_ID, filter.getTankTypeId());
-	// inputParameters.put(CryoConstants.CRYO_LABEL_ID, filter.getLabelTypeId());
-	// return inputParameters;
-	// }
-
+	
 	private void clearDeclaredParameters() {
 		// clearing off declared parameters
 		// so that when run with multiple stored procedures,

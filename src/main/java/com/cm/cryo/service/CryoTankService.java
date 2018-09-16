@@ -13,8 +13,9 @@ import com.cm.cryo.dto.CryoCanisterDTO;
 import com.cm.cryo.dto.CryoMasterDTO;
 import com.cm.cryo.dto.CryoRoomDTO;
 import com.cm.cryo.dto.CryoTankDTO;
+import com.cm.cryo.dto.CryoTankDetailRequestDTO;
+import com.cm.cryo.dto.CryoTankDetailResponseDTO;
 import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
-import com.cm.cryo.dto.CryoTankFilterDTO;
 import com.cm.cryo.ibridge.ICryoTankBridge;
 import com.cm.cryo.iservice.ICryoTankService;
 import com.cm.cryo.util.CryoConstants;
@@ -53,11 +54,6 @@ public class CryoTankService implements ICryoTankService {
 		return cryoMaster;
 	}
 
-	@Override
-	public List<CryoTankDTO> getTanks(CryoTankFilterDTO filter) {
-		return cryoTankBridge.getTanks(filter);
-	}
-
 	private void populateCanisters(CryoTankDTO tank) {
 		List<CryoCanisterDTO> canisters = new ArrayList<>();
 		CryoCanisterDTO canister = null;
@@ -76,6 +72,11 @@ public class CryoTankService implements ICryoTankService {
 		room.setTanks(
 				tanks.stream().filter(tank -> tank.getRoom().equalsIgnoreCase(roomName)).collect(Collectors.toList()));
 		return room;
+	}
+
+	@Override
+	public CryoTankDetailResponseDTO getTankDetail(CryoTankDetailRequestDTO tankDetailRequest) {
+		return cryoTankBridge.getTankDetail(tankDetailRequest);
 	}
 
 }

@@ -9,7 +9,25 @@ public class CryoPatientDTO implements Serializable {
 	private int nric; // considering episode_number associated with a patient as NIRC
 	private String hrn;
 	private int tankId;
+	private String remarks;
 	private int canisterNumber;
+	private CryoClinicianDTO clinician;
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public CryoClinicianDTO getClinician() {
+		return clinician;
+	}
+
+	public void setClinician(CryoClinicianDTO clinician) {
+		this.clinician = clinician;
+	}
 
 	public int getRegistrationId() {
 		return registrationId;
@@ -58,6 +76,5 @@ public class CryoPatientDTO implements Serializable {
 	public void setCanisterNumber(int canisterNumber) {
 		this.canisterNumber = canisterNumber;
 	}
-	
-	
+
 }
