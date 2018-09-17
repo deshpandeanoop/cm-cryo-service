@@ -59,11 +59,8 @@ public class CryoTankDetailDAO extends CryoBaseDAO implements ICryoTankDetailDAO
 			filterCriteriaTvp.addColumnMetadata("pat_last_name", Types.VARCHAR);
 			filterCriteriaTvp.addColumnMetadata("hrn_num", Types.VARCHAR);
 			filterCriteriaTvp.addColumnMetadata("nirc", Types.INTEGER);
-
-			filterCriteriaTvp.addRow(tankDetailRequest.getTankId(),
-					(tankDetailRequest.getPatientLastName() == null ? "" : tankDetailRequest.getPatientLastName()),
-					(tankDetailRequest.getHrnNumber() == null ? "" : tankDetailRequest.getHrnNumber()),
-					tankDetailRequest.getNirc());
+			filterCriteriaTvp.addRow(tankDetailRequest.getTankId(),tankDetailRequest.getPatientLastName(),
+					tankDetailRequest.getHrnNumber(),tankDetailRequest.getNirc());
 			inputParamMap.put(CryoConstants.CM_TANK_DETAIL_FILTER, filterCriteriaTvp);
 		} catch (SQLException sqlException) {
 			// Control never goes into the catch block, so eating away the exception
