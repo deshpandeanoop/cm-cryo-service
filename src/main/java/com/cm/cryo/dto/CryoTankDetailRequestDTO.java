@@ -5,6 +5,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class CryoTankDetailRequestDTO implements Serializable {
 	private int tankId;
+	private int registrationId;
 	private String patientLastName;
 	private String hrnNumber; // Since it is a aplha-numeric value, declare it's type as String
 	private int nirc; // It holds the value of episode_number of a patient, which is considered as NIRC
@@ -12,6 +13,15 @@ public class CryoTankDetailRequestDTO implements Serializable {
 	public int getTankId() {
 		return tankId;
 	}
+	
+	public int getRegistrationId() {
+		return registrationId;
+	}
+
+	public void setRegistrationId(int registrationId) {
+		this.registrationId = registrationId;
+	}
+
 	public void setTankId(int tankId) {
 		this.tankId = tankId;
 	}

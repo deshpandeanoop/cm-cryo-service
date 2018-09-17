@@ -56,10 +56,11 @@ public class CryoTankDetailDAO extends CryoBaseDAO implements ICryoTankDetailDAO
 		try {
 			SQLServerDataTable filterCriteriaTvp = new SQLServerDataTable();
 			filterCriteriaTvp.addColumnMetadata("tank_id", Types.INTEGER);
+			filterCriteriaTvp.addColumnMetadata("reg_id",Types.INTEGER);
 			filterCriteriaTvp.addColumnMetadata("pat_last_name", Types.VARCHAR);
 			filterCriteriaTvp.addColumnMetadata("hrn_num", Types.VARCHAR);
 			filterCriteriaTvp.addColumnMetadata("nirc", Types.INTEGER);
-			filterCriteriaTvp.addRow(tankDetailRequest.getTankId(),tankDetailRequest.getPatientLastName(),
+			filterCriteriaTvp.addRow(tankDetailRequest.getTankId(),tankDetailRequest.getRegistrationId(),tankDetailRequest.getPatientLastName(),
 					tankDetailRequest.getHrnNumber(),tankDetailRequest.getNirc());
 			inputParamMap.put(CryoConstants.CM_TANK_DETAIL_FILTER, filterCriteriaTvp);
 		} catch (SQLException sqlException) {
