@@ -57,12 +57,17 @@
     	<groupId>com.microsoft.sqlserver</groupId>
     	<artifactId>mssql-jdbc</artifactId>
 		</dependency>
+		<!-- MySQL server driver dependency -->
+		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 		<!-- spring-jdbc jars -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			</dependency>
-
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>

@@ -3,6 +3,7 @@ package com.cm.cryo.bridge;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.cm.cryo.dto.CryoPatientDTO;
@@ -13,12 +14,14 @@ import com.cm.cryo.dto.CryoTankDropDownAttributeDTO;
 import com.cm.cryo.ibridge.ICryoTankBridge;
 import com.cm.cryo.idao.ICryoTankDAO;
 import com.cm.cryo.idao.ICryoTankDetailDAO;
+import com.cm.cryo.util.CryoConstants;
 
 @Component
 public class CryoTankBridge implements ICryoTankBridge {
 	@Autowired
 	private ICryoTankDAO cryoTankDAO;
 	@Autowired
+	@Qualifier(CryoConstants.CRYO_TANK_DETAIL_DAO_BEAN)
 	private ICryoTankDetailDAO cryoTankDetailDAO;
 
 	@Override
